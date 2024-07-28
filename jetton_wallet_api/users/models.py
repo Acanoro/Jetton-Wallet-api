@@ -1,13 +1,20 @@
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
 # Create your models here.
+def generate_image_path(instance, filename):
+    image_path = f'avatar/{uuid.uuid4}.jpg'
+
+    return image_path
+
+
 class AvatarsModel(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Название каталога')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
-    link = models.URLField(verbose_name='Ссылка н аватарку')
+    image = models.ImageField(upload_to=generate_image_path, verbose_name='Картинка')
     active = models.BooleanField(default=True, verbose_name='доступ')
 
     def __str__(self):
@@ -20,7 +27,6 @@ class AvatarsModel(models.Model):
 
 class LanguagesModel(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Язык')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
     iso_code = models.CharField(max_length=10, unique=True, verbose_name='iso_code')
     active = models.BooleanField(default=True, verbose_name='доступ')
 
@@ -98,7 +104,6 @@ class ModeratorsModel(models.Model):
 
 class NameWalletModel(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название кошелька")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
 
     def __str__(self):
         return f'{self.name}'

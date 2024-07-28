@@ -8,19 +8,15 @@ from users.models import *
 
 # Register your models here.
 class AvatarsAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'link', 'active',)
+    list_display = ('pk', 'name', 'active',)
     search_fields = ('name',)
     list_filter = ('active',)
-
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class LanguagesAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'active',)
     search_fields = ('name',)
     list_filter = ('active',)
-
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class CustomUserAdmin(UserAdmin):
@@ -77,8 +73,6 @@ class ModeratorsAdmin(admin.ModelAdmin):
 class NameWalletAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name',)
     search_fields = ('name',)
-
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class TonWalletAdmin(admin.ModelAdmin):

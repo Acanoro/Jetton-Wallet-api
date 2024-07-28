@@ -6,7 +6,6 @@ from users.models import CustomUser
 # Create your models here.
 class TaskTypeModel(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name='Тип задания')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
 
     def __str__(self):
         return f'{self.name}'
@@ -25,7 +24,6 @@ class TaskModel(models.Model):
     )
 
     name = models.CharField(max_length=100, verbose_name='Задания')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
     description = models.TextField(max_length=1000, blank=True, null=True, verbose_name='Описание')
     points = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
@@ -83,7 +81,6 @@ class TaskModeratorModel(models.Model):
 
 class SocialNetworkModel(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название соц сети')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Slug')
 
     def __str__(self):
         return f'{self.name}'

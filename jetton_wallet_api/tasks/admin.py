@@ -10,15 +10,11 @@ class TaskTypeAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name',)
     search_fields = ('name',)
 
-    prepopulated_fields = {'slug': ('name',)}
-
 
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'description', 'points', 'status')
     search_fields = ('name', 'description',)
     list_filter = ('status',)
-
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class TaskModeratorAdmin(admin.ModelAdmin):
@@ -36,8 +32,6 @@ class TaskModeratorAdmin(admin.ModelAdmin):
 class SocialNetworkAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name',)
     search_fields = ('name',)
-
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class SocialTaskAdmin(admin.ModelAdmin):
