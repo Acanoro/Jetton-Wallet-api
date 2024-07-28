@@ -13,8 +13,9 @@ class AvatarsViewSet(viewsets.ModelViewSet):
 
 
 class LanguagesViewSet(viewsets.ModelViewSet):
-    queryset = LanguagesModel.objects.all()
+    queryset = LanguagesModel.objects.filter(active=True)
     serializer_class = LanguagesSerializer
+    http_method_names = ['get', 'put', 'patch']
 
 
 class CustomUserViewSet(viewsets.ModelViewSet):

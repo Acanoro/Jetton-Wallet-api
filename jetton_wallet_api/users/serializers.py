@@ -13,7 +13,7 @@ class AvatarsSerializer(serializers.ModelSerializer):
 class LanguagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = LanguagesModel
-        fields = '__all__'
+        fields = ['name', 'iso_code']
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
