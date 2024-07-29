@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from users.serializers import CustomUserSerializer, ModeratorsSerializer
-from .models import SocialNetworkModel, SocialTaskModel, UserTaskModel, TaskModeratorModel, TaskModel, TaskTypeModel
+from .models import *
 
 
 class TaskTypeSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TaskModel
-        fields = '__all__'
+        fields = ['related_user', 'name', 'description', 'points']
 
 
 class TaskModeratorSerializer(serializers.ModelSerializer):
@@ -44,9 +44,8 @@ class SocialTaskSerializer(serializers.ModelSerializer):
 
 
 class UserTaskSerializer(serializers.ModelSerializer):
-    related_user = CustomUserSerializer()
     related_social_task = SocialTaskSerializer()
 
     class Meta:
         model = UserTaskModel
-        fields = '__all__'
+        fields = ['related_social_task', 'status', 'timestamp']

@@ -1,13 +1,12 @@
 from rest_framework import serializers
 
-from users.models import AvatarsModel, LanguagesModel, CustomUser, ModeratorsModel, NameWalletModel, TonWalletModel, \
-    ReferralsModel
+from users.models import *
 
 
 class AvatarsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AvatarsModel
-        fields = '__all__'
+        fields = ['name', 'image']
 
 
 class LanguagesSerializer(serializers.ModelSerializer):
@@ -16,10 +15,30 @@ class LanguagesSerializer(serializers.ModelSerializer):
         fields = ['name', 'iso_code']
 
 
+class LeaderBoardSerializer(serializers.ModelSerializer):
+    referrals_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'balance', 'referrals_count']
+
+    def get_referrals_count(self, obj) -> int:
+        return ReferralsModel.objects.filter(related_user=obj).count()
+
+
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = '__all__'
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = super(CustomUserSerializer, self).create(validated_data)
+        user.set_password(user.password)
+        user.is_active = True
+        user.save()
+
+        return user
 
 
 class ModeratorsSerializer(serializers.ModelSerializer):
@@ -38,17 +57,15 @@ class NameWalletSerializer(serializers.ModelSerializer):
 
 class TonWalletSerializer(serializers.ModelSerializer):
     related_name_wallet = NameWalletSerializer()
-    related_user = CustomUserSerializer()
 
     class Meta:
         model = TonWalletModel
-        fields = '__all__'
+        fields = ['related_name_wallet', 'date', 'address']
 
 
 class ReferralsSerializer(serializers.ModelSerializer):
-    related_user = CustomUserSerializer()
     related_user_referral = CustomUserSerializer()
 
     class Meta:
         model = ReferralsModel
-        fields = '__all__'
+        fields = ['related_user_referral']

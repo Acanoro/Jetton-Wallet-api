@@ -127,7 +127,7 @@ class TonWalletModel(models.Model):
         verbose_name='Пользователь',
         related_name='wallets'
     )
-
+    address = models.CharField(verbose_name='адрес', max_length=100, unique=True)
     date = models.DateTimeField(verbose_name='Дата добавления')
 
     def __str__(self):

@@ -1,17 +1,17 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from users.views import AvatarsViewSet, LanguagesViewSet, CustomUserViewSet, ModeratorsViewSet, NameWalletViewSet, \
-    ReferralsViewSet, TonWalletViewSet
+from users.views import *
 
 router = DefaultRouter()
-router.register(r'api/v1/avatars', AvatarsViewSet)
-router.register(r'api/v1/languages', LanguagesViewSet)
-router.register(r'api/v1/users', CustomUserViewSet)
-router.register(r'api/v1/moderators', ModeratorsViewSet)
-router.register(r'api/v1/name-wallets', NameWalletViewSet)
-router.register(r'api/v1/ton-wallets', TonWalletViewSet)
-router.register(r'api/v1/referrals', ReferralsViewSet)
+router.register(r'avatars', AvatarsViewSet)
+router.register(r'languages', LanguagesViewSet)
+router.register(r'leader-board', LeaderBoardViewSet)
+router.register(r'users', CustomUserViewSet, basename='users')
+router.register(r'moderators', ModeratorsViewSet)
+router.register(r'name-wallets', NameWalletViewSet)
+router.register(r'ton-wallets', TonWalletViewSet, basename='ton_wallet')
+router.register(r'referrals', ReferralsViewSet, basename='referral')
 
 urlpatterns = [
     path('', include(router.urls)),
