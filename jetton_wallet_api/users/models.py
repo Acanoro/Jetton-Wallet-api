@@ -4,6 +4,8 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
+from admin_dashboard.models import AdminDashboardModel
+
 
 # Create your models here.
 def generate_image_path(instance, filename):
@@ -77,6 +79,14 @@ class CustomUser(AbstractUser):
         validators=[MinValueValidator(0), MaxValueValidator(10)],
         verbose_name='Оставшиеся приглашения'
     )
+
+    def save(self, *args, **kwargs):
+        is_new = self.pk is None
+        super().save(*args, **kwargs)
+        if is_new:
+            dashboard, created = AdminDashboardModel.objects.get_or_create(id=1)
+            dashboard.total_users += 1
+            dashboard.save()
 
     def __str__(self):
         return f'{self.username}'
@@ -166,6 +176,15 @@ class ReferralsModel(models.Model):
 
     def __str__(self):
         return f'TonWalletObject'
+
+    def save(self, *args, **kwargs):
+        is_new = self.pk is None
+        super().save(*args, **kwargs)
+
+        if is_new:
+            dashboard, _ = AdminDashboardModel.objects.get_or_create(id=1)
+            dashboard.total_referrals += 1
+            dashboard.save()
 
     class Meta:
         verbose_name = 'TonWallet'

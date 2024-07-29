@@ -1,5 +1,6 @@
 from django.db import models
 
+from admin_dashboard.models import AdminDashboardModel
 from users.models import CustomUser
 
 
@@ -74,6 +75,18 @@ class TaskModeratorModel(models.Model):
     def __str__(self):
         return f'TaskModeratorObject'
 
+    def save(self, *args, **kwargs):
+        old_status = None
+        if self.pk:
+            old_status = TaskModeratorModel.objects.get(pk=self.pk).status
+
+        super().save(*args, **kwargs)
+
+        if old_status != 'claim' and self.status == 'claim':
+            dashboard, _ = AdminDashboardModel.objects.get_or_create(id=1)
+            dashboard.total_tasks_completed += 1
+            dashboard.save()
+
     class Meta:
         verbose_name = 'Ручная проверка'
         verbose_name_plural = 'Ручная проверка'
@@ -145,6 +158,18 @@ class UserTaskModel(models.Model):
 
     def __str__(self):
         return f'UserTaskObject'
+
+    def save(self, *args, **kwargs):
+        old_status = None
+        if self.pk:
+            old_status = UserTaskModel.objects.get(pk=self.pk).status
+
+        super().save(*args, **kwargs)
+
+        if old_status != 'claim' and self.status == 'claim':
+            dashboard, _ = AdminDashboardModel.objects.get_or_create(id=1)
+            dashboard.total_tasks_completed += 1
+            dashboard.save()
 
     class Meta:
         verbose_name = 'UserTask'
