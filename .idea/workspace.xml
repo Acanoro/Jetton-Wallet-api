@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c73d28-6e6d-4bd2-9b8d-9eb57ae0adf8" name="Changes" comment="update project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/tasks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/tasks/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="f0c73d28-6e6d-4bd2-9b8d-9eb57ae0adf8" name="Changes" comment="update project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +69,7 @@
       <workItem from="1722188192058" duration="64000" />
       <workItem from="1722188262512" duration="950000" />
       <workItem from="1722193286945" duration="28000" />
-      <workItem from="1722237457523" duration="11252000" />
+      <workItem from="1722237457523" duration="12121000" />
     </task>
     <task id="LOCAL-00001" summary="git init">
       <option name="closed" value="true" />
@@ -132,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722252855014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update project">
+      <option name="closed" value="true" />
+      <created>1722254117901</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722254117901</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

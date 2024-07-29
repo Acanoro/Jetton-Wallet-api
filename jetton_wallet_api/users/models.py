@@ -55,13 +55,7 @@ class CustomUser(AbstractUser):
     )
 
     telegram_id = models.IntegerField(unique=True, verbose_name='Telegram ID', null=True, blank=True, )
-    balance = models.DecimalField(
-        default=0,
-        max_digits=10,
-        decimal_places=2,
-        validators=[MinValueValidator(0)],
-        verbose_name='Баланс'
-    )
+    balance = models.IntegerField(verbose_name='Баланс')
     twitter_account = models.CharField(
         max_length=100,
         null=True,
