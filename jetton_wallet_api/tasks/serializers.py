@@ -11,11 +11,11 @@ class TaskTypeSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
-    related_user = CustomUserSerializer()
+    related_task_type = TaskTypeSerializer()
 
     class Meta:
         model = TaskModel
-        fields = ['related_user', 'name', 'description', 'points']
+        fields = ['related_task_type', 'name', 'description', 'points']
 
 
 class TaskModeratorSerializer(serializers.ModelSerializer):

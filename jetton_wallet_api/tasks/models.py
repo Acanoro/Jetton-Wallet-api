@@ -1,7 +1,7 @@
 from django.db import models
 
 from admin_dashboard.models import AdminDashboardModel
-from users.models import CustomUser
+from users.models import CustomUser, ModeratorsModel
 
 
 # Create your models here.
@@ -52,7 +52,7 @@ class TaskModeratorModel(models.Model):
         related_name='moderator_user_tasks'
     )
     related_moderator = models.ForeignKey(
-        CustomUser,
+        ModeratorsModel,
         on_delete=models.SET_NULL,
         null=True,
         verbose_name='Модератор',
