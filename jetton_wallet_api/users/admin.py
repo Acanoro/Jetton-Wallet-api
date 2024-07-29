@@ -64,7 +64,7 @@ class ModeratorsAdmin(admin.ModelAdmin):
     search_fields = ('related_user__username',)
 
     def user_link(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link.short_description = 'Пользователь'
@@ -80,7 +80,7 @@ class TonWalletAdmin(admin.ModelAdmin):
     search_fields = ('related_user__username',)
 
     def user_link(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link.short_description = 'Пользователь'
@@ -91,13 +91,13 @@ class ReferralsAdmin(admin.ModelAdmin):
     search_fields = ('related_user__username', 'related_user_referral__username')
 
     def user_link_referral(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link_referral.short_description = 'Пользователь'
 
     def user_link(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link.short_description = 'Пользователь реферал'

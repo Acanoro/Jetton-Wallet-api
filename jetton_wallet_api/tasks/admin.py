@@ -23,7 +23,7 @@ class TaskModeratorAdmin(admin.ModelAdmin):
     list_filter = ('status',)
 
     def user_link(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link.short_description = 'Пользователь'
@@ -44,7 +44,7 @@ class UserTaskAdmin(admin.ModelAdmin):
     list_filter = ('status',)
 
     def user_link(self, obj):
-        url = reverse('admin:accounts_customuser_change', args=[obj.related_user_id])
+        url = reverse('admin:users_customuser_change', args=[obj.related_user_id])
         return format_html(f'<a href="{url}">{obj.related_user}</a>')
 
     user_link.short_description = 'Пользователь'

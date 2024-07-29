@@ -105,7 +105,7 @@ class ModeratorsModel(models.Model):
     )
 
     def __str__(self):
-        return f'{self.related_user.name}'
+        return f'{self.related_user.username}'
 
     class Meta:
         verbose_name = 'Модераторы'
@@ -187,5 +187,5 @@ class ReferralsModel(models.Model):
             dashboard.save()
 
     class Meta:
-        verbose_name = 'TonWallet'
-        verbose_name_plural = 'TonWallet'
+        verbose_name = 'Referrals'
+        verbose_name_plural = 'Referrals'
