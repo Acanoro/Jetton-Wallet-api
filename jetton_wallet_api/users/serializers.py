@@ -30,15 +30,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = '__all__'
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-        user = super(CustomUserSerializer, self).create(validated_data)
-        user.set_password(user.password)
-        user.is_active = True
-        user.save()
-
-        return user
 
 
 class ModeratorsSerializer(serializers.ModelSerializer):

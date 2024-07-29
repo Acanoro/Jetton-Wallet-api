@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from django.urls import reverse
 from django.utils.html import format_html
 
@@ -19,44 +18,18 @@ class LanguagesAdmin(admin.ModelAdmin):
     list_filter = ('active',)
 
 
-class CustomUserAdmin(UserAdmin):
-    # Edit user# Edit user
-    add_fieldsets = (
-        *UserAdmin.add_fieldsets,
-        (
-            'Custom fields',
-            {
-                'fields': (
-                    'related_avatar',
-                    'related_languages',
-                    'telegram_id',
-                    'balance',
-                    'twitter_account',
-                    'youtube_account',
-                    'remaining_invites',
-                )
-            }
-        )
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = (
+        'pk',
+        'username',
+        'telegram_id',
+        'balance',
+        'twitter_account',
+        'youtube_account',
+        'remaining_invites'
     )
-
-    # # Edit user
-    fieldsets = (
-        *UserAdmin.fieldsets,
-        (
-            'Custom fields',
-            {
-                'fields': (
-                    'related_avatar',
-                    'related_languages',
-                    'telegram_id',
-                    'balance',
-                    'twitter_account',
-                    'youtube_account',
-                    'remaining_invites',
-                )
-            }
-        )
-    )
+    search_fields = ('username', 'telegram_id',)
+    list_filter = ('remaining_invites',)
 
 
 class ModeratorsAdmin(admin.ModelAdmin):

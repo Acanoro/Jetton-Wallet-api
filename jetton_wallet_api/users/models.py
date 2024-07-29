@@ -1,8 +1,10 @@
 import uuid
 
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from admin_dashboard.models import AdminDashboardModel
 
@@ -40,7 +42,7 @@ class LanguagesModel(models.Model):
         verbose_name_plural = 'Язык'
 
 
-class CustomUser(AbstractUser):
+class CustomUser(models.Model):
     related_avatar = models.ForeignKey(
         AvatarsModel,
         on_delete=models.SET_NULL,
@@ -54,7 +56,22 @@ class CustomUser(AbstractUser):
         verbose_name="Язык"
     )
 
+    username_validator = UnicodeUsernameValidator()
+    username = models.CharField(
+        _("username"),
+        max_length=150,
+        unique=True,
+        help_text=_(
+            "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+        ),
+        validators=[username_validator],
+        error_messages={
+            "unique": _("A user with that username already exists."),
+        },
+    )
+
     telegram_id = models.IntegerField(unique=True, verbose_name='Telegram ID', null=True, blank=True, )
+
     balance = models.IntegerField(verbose_name='Баланс')
     twitter_account = models.CharField(
         max_length=100,
