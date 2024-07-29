@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.exceptions import PermissionDenied
 
@@ -45,10 +46,12 @@ class TonWalletViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        return TonWalletModel.objects.filter(related_user=user)
+        custom_user = get_object_or_404(CustomUser, id=user.id)
 
-    def list(self, request, *args, **kwargs):
-        raise PermissionDenied("You are not allowed to access all records.")
+        return TonWalletModel.objects.filter(related_user=custom_user)
+    #
+    # def list(self, request, *args, **kwargs):
+    #     raise PermissionDenied("You are not allowed to access all records.")
 
 
 class ReferralsViewSet(viewsets.ModelViewSet):
@@ -56,7 +59,8 @@ class ReferralsViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        return ReferralsModel.objects.filter(related_user=user)
+        custom_user = get_object_or_404(CustomUser, id=user.id)
+        return ReferralsModel.objects.filter(related_user=custom_user)
 
     def list(self, request, *args, **kwargs):
         raise PermissionDenied("You are not allowed to access all records.")
