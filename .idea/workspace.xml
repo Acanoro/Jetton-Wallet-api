@@ -6,19 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f0c73d28-6e6d-4bd2-9b8d-9eb57ae0adf8" name="Changes" comment="update project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/admin_dashboard/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/tasks/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/tasks/migrations/0002_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/tasks/migrations/0003_remove_socialnetworkmodel_slug_remove_taskmodel_slug_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/migrations/0002_alter_customuser_telegram_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/migrations/0003_remove_avatarsmodel_link_remove_avatarsmodel_slug_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/migrations/0004_tonwalletmodel_address.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/migrations/0005_alter_referralsmodel_options_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +73,7 @@
       <workItem from="1722193286945" duration="28000" />
       <workItem from="1722237457523" duration="12121000" />
       <workItem from="1722256855807" duration="790000" />
-      <workItem from="1722273420102" duration="1468000" />
+      <workItem from="1722273420102" duration="1792000" />
     </task>
     <task id="LOCAL-00001" summary="git init">
       <option name="closed" value="true" />
@@ -160,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722257040517</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update project">
+      <option name="closed" value="true" />
+      <created>1722275205422</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722275205422</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
