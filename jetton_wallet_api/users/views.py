@@ -58,7 +58,7 @@ class TonWalletViewSet(viewsets.ModelViewSet):
 
 
 class ReferralsViewSet(viewsets.ModelViewSet):
-    serializer_class = ReferralsSerializer()
+    serializer_class = ReferralsSerializer
 
     def get_queryset(self):
         queryset = ReferralsModel.objects.all()
