@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from drf_spectacular.utils import extend_schema
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
@@ -57,7 +58,7 @@ class TonWalletViewSet(viewsets.ModelViewSet):
 
 
 class ReferralsViewSet(viewsets.ModelViewSet):
-    serializer_class = ReferralsSerializer
+    serializer_class = ReferralsSerializer()
 
     def get_queryset(self):
         queryset = ReferralsModel.objects.all()

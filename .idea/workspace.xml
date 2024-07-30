@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c73d28-6e6d-4bd2-9b8d-9eb57ae0adf8" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetton_wallet_api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetton_wallet_api/users/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f0c73d28-6e6d-4bd2-9b8d-9eb57ae0adf8" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +77,7 @@
       <workItem from="1722322812161" duration="2499000" />
       <workItem from="1722325977717" duration="118000" />
       <workItem from="1722337576807" duration="565000" />
-      <workItem from="1722345296754" duration="1125000" />
+      <workItem from="1722345296754" duration="1498000" />
     </task>
     <task id="LOCAL-00001" summary="git init">
       <option name="closed" value="true" />
@@ -203,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722338045277</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update">
+      <option name="closed" value="true" />
+      <created>1722346648217</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722346648217</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
