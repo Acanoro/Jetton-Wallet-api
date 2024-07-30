@@ -15,7 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TaskModel
-        fields = ['related_task_type', 'name', 'description', 'points']
+        fields = ['id', 'related_task_type', 'name', 'description', 'points']
 
 
 class TaskModeratorSerializer(serializers.ModelSerializer):
@@ -48,4 +48,4 @@ class UserTaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserTaskModel
-        fields = ['related_social_task', 'status', 'timestamp']
+        fields = ['id', 'related_social_task', 'status', 'timestamp']

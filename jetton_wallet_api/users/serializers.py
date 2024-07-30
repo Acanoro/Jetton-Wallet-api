@@ -6,13 +6,13 @@ from users.models import *
 class AvatarsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AvatarsModel
-        fields = ['name', 'image']
+        fields = ['id', 'name', 'image']
 
 
 class LanguagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = LanguagesModel
-        fields = ['name', 'iso_code']
+        fields = ['id', 'name', 'iso_code']
 
 
 class LeaderBoardSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class LeaderBoardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'balance', 'referrals_count']
+        fields = ['id', 'username', 'balance', 'referrals_count']
 
     def get_referrals_count(self, obj) -> int:
         return ReferralsModel.objects.filter(related_user=obj).count()
@@ -51,7 +51,7 @@ class TonWalletSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TonWalletModel
-        fields = ['related_name_wallet', 'date', 'address']
+        fields = ['id', 'related_name_wallet', 'date', 'address']
 
 
 class ReferralsSerializer(serializers.ModelSerializer):
@@ -59,4 +59,4 @@ class ReferralsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ReferralsModel
-        fields = ['related_user_referral']
+        fields = ['id', 'related_user_referral']
