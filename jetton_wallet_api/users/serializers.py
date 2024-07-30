@@ -55,8 +55,6 @@ class TonWalletSerializer(serializers.ModelSerializer):
 
 
 class ReferralsSerializer(serializers.ModelSerializer):
-    related_user_referral = CustomUserSerializer()
-
     class Meta:
         model = ReferralsModel
-        fields = ['id', 'related_user_referral']
+        fields = '__all__'

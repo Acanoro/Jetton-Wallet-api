@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.response import Response
 
 from users.serializers import *
 
@@ -58,9 +60,9 @@ class ReferralsViewSet(viewsets.ModelViewSet):
     serializer_class = ReferralsSerializer
 
     def get_queryset(self):
-        user = self.request.user
-        custom_user = get_object_or_404(CustomUser, id=user.id)
-        return ReferralsModel.objects.filter(related_user=custom_user)
+        queryset = ReferralsModel.objects.all()
+        user_id = self.request.query_params.get('user_id', None)
+        if user_id is not None:
+            queryset = queryset.filter(related_user_id=user_id)
+        return queryset
 
-    def list(self, request, *args, **kwargs):
-        raise PermissionDenied("You are not allowed to access all records.")
